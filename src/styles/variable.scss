@@ -1,0 +1,23 @@
+$body-background-dark: #161c2f;
+$body-background-light: #edeff0;
+
+$components-background-dark: #242d43;
+$components-background-light: #fff;
+
+$color-dark: #ffff;
+$color-light: #467ebc;
+
+:root {
+	//body-background
+	--body-background-dark: #{$body-background-dark};
+	--body-background-light: #{$body-background-light};
+	--body-background-default: var(#{--body-background-light});
+	//components-background
+	--components-background-dark: #{$components-background-dark};
+	--components-background-light: #{$components-background-light};
+	--components-background-default: var(#{--components-background-light});
+	//text
+	--text-color-light: #{$color-light};
+	--text-color-dark: #{$color-dark};
+	--text-color-default: var(#{--text-color-light});
+}
