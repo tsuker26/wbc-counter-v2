@@ -3,5 +3,14 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	background: var(#{--body-background-default});
+	background: var(--body-background);
+	transition: background-color 200ms linear;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: 1200px;
+	background: var(--component-background);
+	color: var(--text-color);
+	transition: color 200ms linear, background-color 200ms linear;
 }
