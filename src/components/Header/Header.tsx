@@ -2,9 +2,7 @@ import { FC } from 'react'
 import styles from './Header.module.scss'
 import logo from '../../assets/logo.png'
 import { useAppSelector } from '../../hook/useApp'
-import { useLanguage } from '../../hook/useLanguage'
 import ToggleTheme from '../UI/ToggleTheme/ToggleTheme'
-import { useTheme } from '../../hook/useTheme'
 
 // interface HeaderProps {
 // 	select: keyof ILanguages
@@ -12,9 +10,6 @@ import { useTheme } from '../../hook/useTheme'
 // }
 
 const Header: FC = () => {
-	const { setTheme } = useTheme()
-
-	const { select, setSelect } = useLanguage()
 	const { language } = useAppSelector(state => state.lang)
 	return (
 		<header className={styles.header}>
@@ -26,7 +21,10 @@ const Header: FC = () => {
 					<h1 className={styles.name}>WBC Counter</h1>
 				</div>
 				<div className={styles.header_setting}>
-					<ToggleTheme />
+					<div className={styles.toggle}>
+						<h2>{language.darkTheme}</h2>
+						<ToggleTheme />
+					</div>
 				</div>
 			</div>
 		</header>

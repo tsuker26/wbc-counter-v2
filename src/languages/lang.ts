@@ -1,5 +1,5 @@
 export interface ILanguage {
-	theme: string
+	darkTheme: string
 	light: string
 	dark: string
 }
@@ -10,12 +10,12 @@ export interface ILanguages {
 }
 
 export const ru: ILanguage = {
-	theme: 'Тема',
+	darkTheme: 'Темная тема',
 	light: 'Светлая',
 	dark: 'Темная',
 }
 export const en: ILanguage = {
-	theme: 'Theme',
+	darkTheme: 'Dark theme',
 	light: 'Light',
 	dark: 'Dark',
 }

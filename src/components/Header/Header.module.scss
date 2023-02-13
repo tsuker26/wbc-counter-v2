@@ -36,6 +36,17 @@
 		.header_setting {
 			display: flex;
 			justify-content: space-between;
+
+			.toggle {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				color: var(--text-color);
+
+				h2 {
+					margin-right: 15px;
+				}
+			}
 		}
 	}
 }

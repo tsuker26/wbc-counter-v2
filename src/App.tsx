@@ -11,7 +11,6 @@ function App() {
 			<main className={'content'}>
 				{language.dark}
 				{language.light}
-				{language.theme}
 			</main>
 		</div>
 	)
