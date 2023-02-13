@@ -1,4 +1,4 @@
-interface ILanguage {
+export interface ILanguage {
 	theme: string
 	light: string
 	dark: string

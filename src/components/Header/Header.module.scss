@@ -1,0 +1,41 @@
+@import 'src/styles/variable';
+
+.header {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+	background-color: var(--component-background);
+	width: 100%;
+
+	.header_content {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 1200px;
+
+		.header_logo {
+			display: flex;
+
+			.logo {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				width: 60px;
+				height: 60px;
+				margin-left: -20px;
+			}
+
+			.name {
+				align-self: center;
+				font-weight: 600;
+			}
+		}
+
+		.header_setting {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}

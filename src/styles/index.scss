@@ -1,16 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import 'variable';
 
-body {
-	font-family: 'Montserrat', sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Itim', cursive;
+}
+
+.App {
+	width: 100vw;
+	height: 100vh;
 	background: var(--body-background);
 	transition: background-color 200ms linear;
 }
 
 .content {
-	margin: 0 auto;
+	margin: 15px auto;
 	max-width: 1200px;
 	background: var(--component-background);
 	color: var(--text-color);
 	transition: color 200ms linear, background-color 200ms linear;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 28px;
+	color: var(--text-color);
+}
+
+h2 {
+	font-weight: 300;
+	font-size: 17px;
+	line-height: 22px;
+	color: var(--text-color);
 }
