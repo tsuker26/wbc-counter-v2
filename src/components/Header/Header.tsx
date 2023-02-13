@@ -2,18 +2,17 @@ import { ChangeEvent, FC } from 'react'
 import styles from './Header.module.scss'
 import logo from '../../assets/logo.png'
 import { useTheme } from '../../hook/useTheme'
-import { ILanguage, ILanguages, lang } from '../../languages/lang'
+import { ILanguages, lang } from '../../languages/lang'
+import { useAppSelector } from '../../hook/useApp'
 
 interface HeaderProps {
-	language: ILanguage
 	select: keyof ILanguages
 	setSelect: (select: keyof ILanguages) => void
 }
 
-const Header: FC<HeaderProps> = ({ language, select, setSelect }) => {
-	// const { language, select, setSelect } = useLanguage()
+const Header: FC<HeaderProps> = ({ select, setSelect }) => {
 	const { setTheme } = useTheme()
-
+	const { language } = useAppSelector(state => state.lang)
 	return (
 		<header className={styles.header}>
 			<div className={styles.header_content}>

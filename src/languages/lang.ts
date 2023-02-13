@@ -9,12 +9,12 @@ export interface ILanguages {
 	en: ILanguage
 }
 
-const ru: ILanguage = {
+export const ru: ILanguage = {
 	theme: 'Тема',
 	light: 'Светлая',
 	dark: 'Темная',
 }
-const en: ILanguage = {
+export const en: ILanguage = {
 	theme: 'Theme',
 	light: 'Light',
 	dark: 'Dark',
