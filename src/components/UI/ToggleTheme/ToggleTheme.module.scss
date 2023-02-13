@@ -1,0 +1,47 @@
+@import 'src/styles/variable';
+
+.myToggle {
+	display: flex;
+	align-self: center;
+
+	.input_block {
+		display: flex;
+		background: var(--body-background);
+
+		&.dark {
+			border-bottom-right-radius: 50%;
+			border-top-right-radius: 50%;
+		}
+
+		&.light {
+			border-bottom-left-radius: 50%;
+			border-top-left-radius: 50%;
+		}
+
+		.input {
+			cursor: pointer;
+			appearance: none;
+			outline: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+
+			&.dark {
+				border: 1px solid var(--body-background);
+
+				&:checked {
+					border: 10px solid #ffff;
+				}
+			}
+
+			&.light {
+				border: 0;
+
+				&:checked {
+					border: 10px solid $grey;
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}
