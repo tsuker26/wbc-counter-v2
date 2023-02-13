@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { ChangeEvent, FC } from 'react'
 import styles from './ToggleTheme.module.scss'
-import { useTheme } from '../../../hook/useTheme'
+import { Theme, useTheme } from '../../../hook/useTheme'
 
 const ToggleTheme: FC = () => {
 	const { theme, setTheme } = useTheme()
@@ -8,20 +8,26 @@ const ToggleTheme: FC = () => {
 		<div className={styles.myToggle}>
 			<div className={`${styles.input_block} ${styles.light} `}>
 				<input
-					onClick={() => setTheme('light')}
+					onChange={(e: ChangeEvent<HTMLInputElement>) =>
+						setTheme(e.target.value as Theme)
+					}
 					className={`${styles.input} ${styles.light} `}
 					type='radio'
 					name={'theme'}
-					checked={theme === 'light'}
+					value={Theme.light}
+					checked={theme === Theme.light}
 				/>
 			</div>
 			<div className={`${styles.input_block} ${styles.dark} `}>
 				<input
-					onClick={() => setTheme('dark')}
+					onChange={(e: ChangeEvent<HTMLInputElement>) =>
+						setTheme(e.target.value as Theme)
+					}
 					className={`${styles.input} ${styles.dark} `}
 					type='radio'
 					name={'theme'}
-					checked={theme === 'dark'}
+					value={Theme.dark}
+					checked={theme === Theme.dark}
 				/>
 			</div>
 		</div>

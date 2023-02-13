@@ -3,7 +3,6 @@
 .header {
 	display: flex;
 	justify-content: center;
-	padding: 10px;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
 	background-color: var(--component-background);
 	width: 100%;
@@ -24,7 +23,7 @@
 				cursor: pointer;
 				width: 60px;
 				height: 60px;
-				margin-left: -20px;
+				margin-left: -10px;
 			}
 
 			.name {
@@ -35,7 +34,10 @@
 
 		.header_setting {
 			display: flex;
+			align-items: center;
 			justify-content: space-between;
+			width: 100%;
+			max-width: 250px;
 
 			.toggle {
 				display: flex;
@@ -44,8 +46,11 @@
 				color: var(--text-color);
 
 				h2 {
-					margin-right: 15px;
+					margin-right: 10px;
 				}
+			}
+
+			.selector_language {
 			}
 		}
 	}
