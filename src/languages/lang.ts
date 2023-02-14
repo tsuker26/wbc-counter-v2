@@ -12,11 +12,11 @@ export interface ILanguage {
 }
 
 export interface ILanguages {
-	ru: ILanguage
-	en: ILanguage
+	RU: ILanguage
+	EN: ILanguage
 }
 
-export const ru: ILanguage = {
+export const RU: ILanguage = {
 	darkTheme: 'Темная тема',
 	cell: 'Клетка',
 	count: 'Количетсво',
@@ -28,7 +28,7 @@ export const ru: ILanguage = {
 	eosinophil: 'Эозинофил',
 	basophil: 'Базофил',
 }
-export const en: ILanguage = {
+export const EN: ILanguage = {
 	darkTheme: 'Dark theme',
 	cell: 'Cell',
 	count: 'Count',
@@ -41,4 +41,4 @@ export const en: ILanguage = {
 	basophil: 'Basophil',
 }
 
-export const lang: ILanguages = { ru, en }
+export const lang: ILanguages = { RU, EN }

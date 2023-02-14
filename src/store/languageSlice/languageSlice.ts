@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ILanguage, ru } from '../../languages/lang'
+import { ILanguage, RU } from '../../languages/lang'
 
 interface languageState {
 	language: ILanguage
 }
 
 const initialState: languageState = {
-	language: ru,
+	language: RU,
 }
 
 const languageSlice = createSlice({

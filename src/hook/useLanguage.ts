@@ -8,7 +8,7 @@ export const useLanguage = () => {
 	const [select, setSelect] = useState<keyof ILanguages>(
 		(localStorage.getItem('lang') &&
 			(localStorage.getItem('lang') as keyof ILanguages)) ||
-			'ru'
+			'RU'
 	)
 	useEffect(() => {
 		dispatch(setLanguage(lang[select]))
