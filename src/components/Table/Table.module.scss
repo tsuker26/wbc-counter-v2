@@ -46,9 +46,13 @@
 			}
 		}
 
-		.delete {
+		&.max {
+			justify-content: center;
+		}
+
+		& .delete {
 			display: none;
-			//font-size: 15px;
+
 			position: absolute;
 			right: 15px;
 			color: $grey;

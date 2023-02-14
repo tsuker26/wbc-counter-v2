@@ -1,8 +1,17 @@
 import { FC } from 'react'
-import styles from './Table.module.scss'
+import Row from './Row'
+import { useAppSelector } from '../../hook/useApp'
 
 const TableBody: FC = () => {
-	return <div className={`${styles.row} ${styles.body}`}></div>
+	const { cells } = useAppSelector(state => state.cells)
+
+	return (
+		<>
+			{cells.map(cell => (
+				<Row key={cell.id} cell={cell} />
+			))}
+		</>
+	)
 }
 
 export default TableBody

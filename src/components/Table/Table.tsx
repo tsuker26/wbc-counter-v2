@@ -1,30 +1,19 @@
 import { FC } from 'react'
 import styles from './Table.module.scss'
+import TableHead from './TableHead'
+import TableBody from './TableBody'
 import { useAppSelector } from '../../hook/useApp'
-import Row from './Row'
 
 const Table: FC = () => {
-	const { language } = useAppSelector(state => state.lang)
-	const cells = [
-		`${language.netrophil}`,
-		`${language.monocyte}`,
-		`${language.lymphocyte}`,
-		`${language.eosinophil}`,
-		`${language.basophil}`,
-	]
+	const { total, maxCount } = useAppSelector(state => state.total)
+
 	return (
 		<div className={styles.table_block}>
-			<div className={`${styles.table_row} ${styles.head}`}>
-				<div className={`${styles.table_cell} ${styles.cell}`}>
-					{language.cell}
-				</div>
-				<div className={styles.table_cell}>{language.count}</div>
-				<div className={styles.table_cell}>{language.relative}</div>
-				<div className={styles.table_cell}>{language.absolute}</div>
+			<TableHead />
+			<TableBody />
+			<div className={`${styles.table_row} ${styles.max}`}>
+				{total}/{maxCount}
 			</div>
-			{cells.map(cell => (
-				<Row key={cell} cell={cell} />
-			))}
 		</div>
 	)
 }

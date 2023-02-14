@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ILanguages, lang } from '../languages/lang'
-import { setLanguage } from '../store/languageSlice/languageSlice'
+import { setLanguage } from '../store/slice/languageSlice'
 import { useAppDispatch } from './useApp'
 
 export const useLanguage = () => {
