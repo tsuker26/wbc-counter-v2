@@ -1,3 +1,5 @@
+@import 'src/styles/variable';
+
 .table_block {
 	margin: 0 auto;
 	background: var(--component-background);
@@ -19,9 +21,42 @@
 		background-color: var(--body-background);
 		border: 2px solid var(--component-background);
 		border-radius: 25px;
+		position: relative;
+		z-index: 1;
 
 		&.head {
 			background-color: var(--component-background);
+		}
+
+		&.body {
+			cursor: pointer;
+
+			&:hover {
+				box-shadow: 3px 3px 3px 3px var(--box-shadow-row);
+				border: 2px solid var(--body-background);
+				z-index: 5;
+
+				.delete {
+					display: flex;
+				}
+			}
+
+			&:active {
+				box-shadow: 0 0;
+			}
+		}
+
+		.delete {
+			display: none;
+			//font-size: 15px;
+			position: absolute;
+			right: 15px;
+			color: $grey;
+			cursor: pointer;
+
+			&:hover {
+				color: var(--text-color);
+			}
 		}
 
 		.table_cell {

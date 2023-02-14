@@ -9,14 +9,19 @@ $color-light: #467ebc;
 
 $grey: #5d606a;
 
+$box-shadow-row-light: rgba(255, 255, 255, 1);
+$box-shadow-row-dark: rgba(41, 44, 60, 1);
+
 html[data-theme='dark'] {
 	--body-background: #{$body-background-dark};
 	--component-background: #{$component-background-dark};
 	--text-color: #{$color-dark};
+	--box-shadow-row: #{$box-shadow-row-dark};
 }
 
 html[data-theme='light'] {
 	--body-background: #{$body-background-light};
 	--component-background: #{$component-background-light};
 	--text-color: #{$color-light};
+	--box-shadow-row: #{$box-shadow-row-light};
 }
