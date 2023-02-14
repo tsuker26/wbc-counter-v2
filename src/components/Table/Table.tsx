@@ -7,37 +7,53 @@ const Table: FC = () => {
 
 	return (
 		<div className={styles.table_block}>
-			<div className={styles.column}>
-				<div className={styles.row}>{language.cell}</div>
-				<div className={styles.row}>{language.netrophil}</div>
-				<div className={styles.row}>{language.monocyte}</div>
-				<div className={styles.row}>{language.lymphocyte}</div>
-				<div className={styles.row}>{language.eosinophil}</div>
-				<div className={styles.row}>{language.basophil}</div>
+			<div className={`${styles.table_row} ${styles.head}`}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.cell}
+				</div>
+				<div className={styles.table_cell}>{language.count}</div>
+				<div className={styles.table_cell}>{language.relative}</div>
+				<div className={styles.table_cell}>{language.absolute}</div>
 			</div>
-			<div className={styles.column}>
-				<div className={styles.row}>{language.count}</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
+			<div className={styles.table_row}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.netrophil}
+				</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
 			</div>
-			<div className={styles.column}>
-				<div className={styles.row}>{language.relative}</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
+			<div className={styles.table_row}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.monocyte}
+				</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
 			</div>
-			<div className={styles.column}>
-				<div className={styles.row}>{language.absolute}</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
-				<div className={styles.row}>0</div>
+			<div className={styles.table_row}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.lymphocyte}
+				</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+			</div>
+			<div className={styles.table_row}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.eosinophil}
+				</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+			</div>
+			<div className={styles.table_row}>
+				<div className={`${styles.table_cell} ${styles.cell}`}>
+					{language.basophil}
+				</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
+				<div className={styles.table_cell}>0</div>
 			</div>
 		</div>
 	)
