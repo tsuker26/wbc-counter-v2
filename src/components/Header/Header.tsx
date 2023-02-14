@@ -28,7 +28,7 @@ const Header: FC = () => {
 						/>
 					</div>
 					<div className={styles.toggle}>
-						<h2>{language.darkTheme}</h2>
+						<span>{language.darkTheme}</span>
 						<ToggleTheme />
 					</div>
 				</div>

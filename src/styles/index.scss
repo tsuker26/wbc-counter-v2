@@ -4,7 +4,9 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Itim', cursive;
+	font-family: 'Roboto ', sans-serif;
+	font-size: 20px;
+	line-height: 22px;
 }
 
 .App {
@@ -17,7 +19,7 @@
 .content {
 	margin: 15px auto;
 	max-width: 1200px;
-	background: var(--component-background);
+	//background: var(--component-background);
 	color: var(--text-color);
 	transition: color 200ms linear, background-color 200ms linear;
 }
@@ -31,7 +33,7 @@ h1 {
 
 h2 {
 	font-weight: 300;
-	font-size: 17px;
+	font-size: 20px;
 	line-height: 22px;
 	color: var(--text-color);
 }

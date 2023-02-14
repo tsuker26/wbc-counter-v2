@@ -12,13 +12,13 @@ const MySelect: FC<mySelectProps> = ({ defaultValue, setSelect, options }) => {
 	return (
 		<select
 			onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-				setSelect(e.target.value as keyof ILanguages)
+				setSelect(e.target.value.toLowerCase() as keyof ILanguages)
 			}
 			defaultValue={defaultValue}
 			className={styles.mySelect}
 		>
 			{options.map(item => (
-				<option key={item}>{item}</option>
+				<option key={item}>{item.toUpperCase()}</option>
 			))}
 		</select>
 	)
