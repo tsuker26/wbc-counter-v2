@@ -4,7 +4,7 @@ import { useAppSelector } from '../../hook/useApp'
 
 const TableBody: FC = () => {
 	const { cells } = useAppSelector(state => state.cells)
-
+	// const cells = JSON.parse(localStorage.getItem('cells'))
 	return (
 		<>
 			{cells.map(cell => (

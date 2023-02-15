@@ -5,7 +5,7 @@ import TableBody from './TableBody'
 import { useAppSelector } from '../../hook/useApp'
 
 const Table: FC = () => {
-	const { total, maxCount } = useAppSelector(state => state.total)
+	const { total, maxCount } = useAppSelector(state => state.cells)
 
 	return (
 		<div className={styles.table_block}>
