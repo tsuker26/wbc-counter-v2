@@ -4,7 +4,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	//font-family: 'Roboto ', sans-serif;
 	font-family: 'Itim ', cursive;
 	font-size: 20px;
 	line-height: 22px;
@@ -24,8 +23,6 @@ body {
 .content {
 	margin: 15px auto;
 	max-width: 1200px;
-
-	//background: var(--component-background);
 	color: var(--text-color);
 	transition: color 200ms linear, background-color 200ms linear;
 }
@@ -42,4 +39,14 @@ h2 {
 	font-size: 20px;
 	line-height: 22px;
 	color: var(--text-color);
+}
+
+@media (max-width: 567px) {
+	* {
+		font-size: 15px;
+		//line-height: 22px;
+	}
+	h1 {
+		font-size: 17px;
+	}
 }

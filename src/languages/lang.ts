@@ -22,14 +22,14 @@ export const RU: ILanguage = {
 	darkTheme: 'Темная тема',
 	cell: 'Клетка',
 	count: 'Количетсво',
-	relative: 'Относительное',
-	absolute: 'Абсолютное',
+	relative: 'Отн',
+	absolute: 'Абсолют',
 	netrophil: 'Нетрофил',
 	monocyte: 'Моноцит',
 	lymphocyte: 'Лимфоцит',
 	eosinophil: 'Эозинофил',
 	basophil: 'Базофил',
-	maxCount: 'Максимальное значение ',
+	maxCount: 'Макс. значение ',
 	reset: 'Сбросить',
 }
 export const EN: ILanguage = {
