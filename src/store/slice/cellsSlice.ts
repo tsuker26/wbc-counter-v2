@@ -6,8 +6,10 @@ interface cellsState {
 	total: number
 	maxCount: number
 	wbc: number
+	mode: string
 }
 
+type setCountPayloadType = { id: number; amount: number; count: number }
 const initialState: cellsState = {
 	cells: [],
 	total: localStorage.getItem('total')
@@ -17,6 +19,7 @@ const initialState: cellsState = {
 		? Number(localStorage.getItem('maxCount'))
 		: 100,
 	wbc: localStorage.getItem('wbc') ? Number(localStorage.getItem('wbc')) : +'',
+	mode: '1',
 }
 
 const cellsSlice = createSlice({
@@ -26,12 +29,12 @@ const cellsSlice = createSlice({
 		setCells(state, action: PayloadAction<ICell[]>) {
 			state.cells = action.payload
 		},
-		setCount(state, action: PayloadAction<number>) {
+		setCount(state, { payload }: PayloadAction<setCountPayloadType>) {
 			if (state.total < state.maxCount) {
-				state.total += 1
+				state.total += payload.amount
 				state.cells.forEach(cell => {
-					if (cell.id === action.payload) {
-						cell.count += 1
+					if (cell.id === payload.id) {
+						cell.count += payload.amount
 					}
 
 					cell.relative = (cell.count * 100) / state.total
@@ -48,6 +51,7 @@ const cellsSlice = createSlice({
 			state.total = 0
 			state.wbc = 0
 			state.maxCount = 100
+			state.mode = '1'
 			localStorage.setItem('cells', JSON.stringify(state.cells))
 			localStorage.setItem('total', String(state.total))
 		},
@@ -63,18 +67,12 @@ const cellsSlice = createSlice({
 			state.maxCount = action.payload
 			localStorage.setItem('maxCount', String(state.maxCount))
 		},
-		// setAddNewCell(state, action: PayloadAction<string>) {
-		// 	state.cells.push({
-		// 		id: state.cells.length + 1,
-		// 		name: action.payload,
-		// 		count: 0,
-		// 		relative: 0,
-		// 		absolute: 0,
-		// 	})
-		// },
+		setMode(state, action: PayloadAction<string>) {
+			state.mode = action.payload
+		},
 	},
 })
 
-export const { setCells, setCount, setDefault, setWbc, setMaxCount } =
+export const { setCells, setCount, setDefault, setWbc, setMaxCount, setMode } =
 	cellsSlice.actions
 export default cellsSlice.reducer

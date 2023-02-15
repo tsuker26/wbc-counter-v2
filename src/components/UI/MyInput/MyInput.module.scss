@@ -3,6 +3,10 @@
 	flex-direction: column;
 	grid-gap: 5px;
 
+	label {
+		font-size: 17px;
+	}
+
 	.myInput {
 		background-color: transparent;
 		padding: 5px;

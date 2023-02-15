@@ -10,12 +10,21 @@ interface RowProps {
 
 const Row: FC<RowProps> = ({ cell }) => {
 	const { language } = useAppSelector(state => state.lang)
+	const { mode } = useAppSelector(state => state.cells)
 	const dispatch = useAppDispatch()
 	return (
 		<>
 			<div
 				className={`${styles.table_row} ${styles.body}`}
-				onClick={() => dispatch(setCount(cell.id))}
+				onClick={() =>
+					dispatch(
+						setCount({
+							id: cell.id,
+							amount: Number(mode) ? 1 : -1,
+							count: cell.count,
+						})
+					)
+				}
 			>
 				<div className={`${styles.table_cell} ${styles.cell}`}>
 					{language[cell.name]}

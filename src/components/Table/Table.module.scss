@@ -1,76 +1,76 @@
 @import 'src/styles/variable';
 
 .table_block {
-  margin: 25px auto;
-  background: var(--component-background);
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px;
-  padding: 15px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+	margin: 25px auto;
+	background: var(--component-background);
+	width: 100%;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 25px;
+	padding: 15px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 
-  .table_row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px;
-    background-color: var(--body-background);
-    border: 2px solid var(--component-background);
-    border-radius: 25px;
-    position: relative;
-    z-index: 1;
+	.table_row {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 0 auto;
+		width: 100%;
+		padding: 20px;
+		background-color: var(--body-background);
+		border: 2px solid var(--component-background);
+		border-radius: 25px;
+		position: relative;
+		z-index: 1;
 
-    &.head {
-      background-color: var(--component-background);
-    }
+		&.head {
+			background-color: var(--component-background);
+		}
 
-    &.body {
-      cursor: pointer;
+		&.body {
+			cursor: pointer;
 
-      &:hover {
-        box-shadow: 3px 3px 3px 3px var(--box-shadow-row);
-        border: 2px solid var(--body-background);
-        z-index: 5;
+			&:hover {
+				box-shadow: 3px 3px 3px 3px var(--box-shadow-row);
+				border: 2px solid var(--body-background);
+				z-index: 5;
 
-        .delete {
-          display: flex;
-        }
-      }
+				.delete {
+					//display: flex;
+				}
+			}
 
-      &:active {
-        box-shadow: 0 0;
-      }
-    }
+			&:active {
+				box-shadow: 0 0;
+			}
+		}
 
-    &.max {
-      justify-content: center;
-    }
+		&.max {
+			justify-content: center;
+		}
 
-    & .delete {
-      display: none;
+		& .delete {
+			display: none;
 
-      position: absolute;
-      right: 15px;
-      color: $grey;
-      cursor: pointer;
+			position: absolute;
+			right: 15px;
+			color: $grey;
+			cursor: pointer;
 
-      &:hover {
-        color: var(--text-color);
-      }
-    }
+			&:hover {
+				color: var(--text-color);
+			}
+		}
 
-    .table_cell {
-      width: 100%;
-      max-width: 200px;
-      text-align: center;
+		.table_cell {
+			width: 100%;
+			max-width: 200px;
+			text-align: center;
 
-      &.cell {
-        text-align: start;
-      }
-    }
-  }
+			&.cell {
+				text-align: start;
+			}
+		}
+	}
 }

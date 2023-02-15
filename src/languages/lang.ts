@@ -9,6 +9,8 @@ export interface ILanguage {
 	lymphocyte: string
 	eosinophil: string
 	basophil: string
+	maxCount: string
+	reset: string
 }
 
 export interface ILanguages {
@@ -27,6 +29,8 @@ export const RU: ILanguage = {
 	lymphocyte: 'Лимфоцит',
 	eosinophil: 'Эозинофил',
 	basophil: 'Базофил',
+	maxCount: 'Максимальное значение ',
+	reset: 'Сбросить',
 }
 export const EN: ILanguage = {
 	darkTheme: 'Dark theme',
@@ -39,6 +43,8 @@ export const EN: ILanguage = {
 	lymphocyte: 'Lymphocyte',
 	eosinophil: 'Eosinophil',
 	basophil: 'Basophil',
+	maxCount: 'Max Value',
+	reset: 'Reset',
 }
 
 export const lang: ILanguages = { RU, EN }

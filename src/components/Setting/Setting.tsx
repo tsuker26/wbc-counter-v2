@@ -2,45 +2,51 @@ import { ChangeEvent, FC } from 'react'
 import styles from './Setting.module.scss'
 import MyInput from '../UI/MyInput/MyInput'
 import { useAppDispatch, useAppSelector } from '../../hook/useApp'
-import { setDefault, setMaxCount, setWbc } from '../../store/slice/cellsSlice'
+import {
+	setDefault,
+	setMaxCount,
+	setMode,
+	setWbc,
+} from '../../store/slice/cellsSlice'
 import MyButton from '../UI/MyButton/MyButton'
+import MyToggle from '../UI/MyToggle/MyToggle'
 
 const Setting: FC = () => {
-	const { wbc, maxCount } = useAppSelector(state => state.cells)
+	const { wbc, maxCount, mode } = useAppSelector(state => state.cells)
 	const dispatch = useAppDispatch()
+	const { language } = useAppSelector(state => state.lang)
 	return (
 		<div className={styles.setting_block}>
-			<MyInput
-				type={'number'}
-				value={wbc}
-				label={'WBC 10⁹/L'}
-				placeholder={'10⁹/L'}
-				onChange={(e: ChangeEvent<HTMLInputElement>) =>
-					dispatch(setWbc(+e.target.value))
-				}
-			/>
-			<MyInput
-				type={'number'}
-				value={maxCount}
-				label={'Max Count'}
-				placeholder={'Max count'}
-				onChange={(e: ChangeEvent<HTMLInputElement>) =>
-					dispatch(setMaxCount(+e.target.value))
-				}
-			/>
-			<div className={styles.buttons}>
-				<MyButton fn={() => dispatch(setDefault())}>Default</MyButton>
+			<div className={styles.item}>
+				<MyInput
+					type={'number'}
+					value={wbc}
+					label={'WBC 10⁹/L'}
+					onChange={(e: ChangeEvent<HTMLInputElement>) =>
+						dispatch(setWbc(+e.target.value))
+					}
+				/>
+				<MyInput
+					type={'number'}
+					value={maxCount}
+					label={language.maxCount}
+					onChange={(e: ChangeEvent<HTMLInputElement>) =>
+						dispatch(setMaxCount(+e.target.value))
+					}
+				/>
+
+				<MyButton fn={() => dispatch(setDefault())}>{language.reset}</MyButton>
 			</div>
-			{/*<MyInput*/}
-			{/*	type={'text'}*/}
-			{/*	value={newCell}*/}
-			{/*	label={'New Cell'}*/}
-			{/*	placeholder={'Add new cell'}*/}
-			{/*	onChange={(e: ChangeEvent<HTMLInputElement>) =>*/}
-			{/*		setNewCell(e.target.value)*/}
-			{/*	}*/}
-			{/*/>*/}
-			{/*<MyButton fn={() => dispatch(setAddNewCell(newCell))}>Add</MyButton>*/}
+			<div className={styles.item}>
+				<MyToggle
+					fn={(mode: string) => dispatch(setMode(mode))}
+					selectActive={mode}
+					selectors={[
+						{ id: '0', name: '-' },
+						{ id: '1', name: '+' },
+					]}
+				/>
+			</div>
 		</div>
 	)
 }

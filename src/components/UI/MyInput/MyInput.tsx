@@ -5,7 +5,7 @@ interface inputProps {
 	type: string
 	value: string | number
 	label: string
-	placeholder: string
+	placeholder?: string
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
