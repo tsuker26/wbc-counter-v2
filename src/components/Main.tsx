@@ -1,8 +1,9 @@
 import { FC, useEffect } from 'react'
 import Table from './Table/Table'
 import { useAppDispatch } from '../hook/useApp'
-import { setCells, setDefault } from '../store/slice/cellsSlice'
+import { setCells } from '../store/slice/cellsSlice'
 import { typesOfCells } from '../data/data'
+import Setting from './Setting/Setting'
 
 const Main: FC = () => {
 	const dispatch = useAppDispatch()
@@ -24,7 +25,7 @@ const Main: FC = () => {
 
 	return (
 		<main className={'content'}>
-			<button onClick={() => dispatch(setDefault())}>default</button>
+			<Setting />
 			<Table />
 		</main>
 	)

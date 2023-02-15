@@ -1,0 +1,35 @@
+.myInput_block {
+	display: flex;
+	flex-direction: column;
+	grid-gap: 5px;
+
+	.myInput {
+		background-color: transparent;
+		padding: 5px;
+		border: 1px solid var(--text-color);
+		outline: none;
+		border-radius: 25px;
+		color: var(--text-color);
+		max-width: 200px;
+		width: 100%;
+
+		&[type='number'] {
+			-moz-appearance: textfield;
+			-webkit-appearance: textfield;
+			appearance: textfield;
+		}
+
+		&[type='number']::-webkit-outer-spin-button,
+		&[type='number']::-webkit-inner-spin-button {
+			display: none;
+		}
+	}
+}
+
+//@media (max-width: 1149px) {
+//  .input {
+//    width: 100%;
+//    font-size: 16px;
+//    line-height: 20px;
+//  }
+//}

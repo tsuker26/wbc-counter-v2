@@ -1,0 +1,19 @@
+@import 'src/styles/variable';
+
+.myButton {
+	padding: 5px;
+	background-color: transparent;
+	color: var(--text-color);
+	border: 1px solid var(--text-color);
+	border-radius: 25px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--text-color);
+		color: var(--body-background);
+	}
+
+	&:active {
+		opacity: 0.5;
+	}
+}

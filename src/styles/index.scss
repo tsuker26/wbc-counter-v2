@@ -10,6 +10,10 @@
 	line-height: 22px;
 }
 
+body {
+	background: var(--body-background);
+}
+
 .App {
 	width: 100vw;
 	height: 100vh;
@@ -20,6 +24,7 @@
 .content {
 	margin: 15px auto;
 	max-width: 1200px;
+
 	//background: var(--component-background);
 	color: var(--text-color);
 	transition: color 200ms linear, background-color 200ms linear;
