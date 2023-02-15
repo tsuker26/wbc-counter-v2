@@ -11,6 +11,13 @@ export interface ILanguage {
 	basophil: string
 	maxCount: string
 	reset: string
+	myelocytes: string
+	metamyelocytes: string
+	bandnuclear: string
+	segmentednuclear: string
+	cellsBlood: string
+	cellsExtended: string
+	cellsDogs: string
 }
 
 export interface ILanguages {
@@ -31,6 +38,13 @@ export const RU: ILanguage = {
 	basophil: 'Базофил',
 	maxCount: 'Макс. значение ',
 	reset: 'Сбросить',
+	myelocytes: 'Миелоциты',
+	metamyelocytes: 'Мета\nмиелоциты',
+	bandnuclear: 'Бандаядерныe',
+	segmentednuclear: 'Сегменто\nядерныe',
+	cellsBlood: 'Клетки',
+	cellsExtended: 'Клетки расширенные',
+	cellsDogs: 'Клетки Собак',
 }
 export const EN: ILanguage = {
 	darkTheme: 'Dark theme',
@@ -45,6 +59,13 @@ export const EN: ILanguage = {
 	basophil: 'Basophil',
 	maxCount: 'Max Value',
 	reset: 'Reset',
+	myelocytes: 'Myelocytes',
+	metamyelocytes: 'Meta\nmyelocytes',
+	bandnuclear: 'Bandnuclear',
+	segmentednuclear: 'Segmented\nnuclear',
+	cellsBlood: 'Cells Blood',
+	cellsExtended: 'Cells Extended',
+	cellsDogs: 'Cells Dogs',
 }
 
 export const lang: ILanguages = { RU, EN }
