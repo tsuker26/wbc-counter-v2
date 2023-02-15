@@ -61,12 +61,18 @@ const cellsSlice = createSlice({
 			state.mode = '1'
 			localStorage.setItem('cells', JSON.stringify(state.cells))
 			localStorage.setItem('total', String(state.total))
+			localStorage.setItem('wbc', String(state.wbc))
 		},
 		setWbc(state, action: PayloadAction<number>) {
 			state.wbc = action.payload
 			state.cells.forEach(cell => {
-				cell.relative = (cell.count * 100) / state.total
-				cell.absolute = (cell.relative * state.wbc) / 100
+				if (state.total === 0) {
+					cell.relative = 0
+					cell.absolute = 0
+				} else {
+					cell.relative = (cell.count * 100) / state.total
+					cell.absolute = (cell.relative * state.wbc) / 100
+				}
 			})
 			localStorage.setItem('cells', JSON.stringify(state.cells))
 			localStorage.setItem('wbc', String(state.wbc))
