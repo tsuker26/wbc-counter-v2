@@ -30,8 +30,8 @@ const Row: FC<RowProps> = ({ cell }) => {
 					{language[cell.name]}
 				</div>
 				<div className={styles.table_cell}>{cell.count}</div>
-				<div className={styles.table_cell}>{cell.relative.toFixed(2)}</div>
-				<div className={styles.table_cell}>{cell.absolute.toFixed(2)}</div>
+				<div className={styles.table_cell}>{cell.relative?.toFixed(2)}</div>
+				<div className={styles.table_cell}>{cell.absolute?.toFixed(2)}</div>
 				<div className={styles.delete}>x</div>
 			</div>
 		</>

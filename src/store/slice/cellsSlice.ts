@@ -30,15 +30,22 @@ const cellsSlice = createSlice({
 			state.cells = action.payload
 		},
 		setCount(state, { payload }: PayloadAction<setCountPayloadType>) {
+			if (payload.count === 0 && payload.amount == -1) {
+				return
+			}
 			if (state.total < state.maxCount) {
 				state.total += payload.amount
 				state.cells.forEach(cell => {
 					if (cell.id === payload.id) {
 						cell.count += payload.amount
 					}
-
-					cell.relative = (cell.count * 100) / state.total
-					cell.absolute = (cell.relative * state.wbc) / 100
+					if (state.total === 0) {
+						cell.relative = 0
+						cell.absolute = 0
+					} else {
+						cell.relative = (cell.count * 100) / state.total
+						cell.absolute = (cell.relative * state.wbc) / 100
+					}
 				})
 				localStorage.setItem('cells', JSON.stringify(state.cells))
 				localStorage.setItem('total', String(state.total))
@@ -61,6 +68,7 @@ const cellsSlice = createSlice({
 				cell.relative = (cell.count * 100) / state.total
 				cell.absolute = (cell.relative * state.wbc) / 100
 			})
+			localStorage.setItem('cells', JSON.stringify(state.cells))
 			localStorage.setItem('wbc', String(state.wbc))
 		},
 		setMaxCount(state, action: PayloadAction<number>) {
