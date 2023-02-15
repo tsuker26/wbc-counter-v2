@@ -25,11 +25,12 @@ const cellsSlice = createSlice({
 			state.cells = action.payload
 		},
 		setCount(state, action: PayloadAction<number>) {
+			state.total += 1
 			state.cells.forEach(cell => {
 				if (cell.id === action.payload) {
 					cell.count += 1
-					state.total += 1
 				}
+
 				cell.relative = (cell.count * 100) / state.total
 				cell.absolute = (cell.relative * state.wbc) / 100
 			})
@@ -45,5 +46,5 @@ const cellsSlice = createSlice({
 	},
 })
 
-export const { setCells, setCount, setDefault } = cellsSlice.actions
+export const {setCells, setCount, setDefault} = cellsSlice.actions
 export default cellsSlice.reducer
