@@ -1,15 +1,15 @@
 @import 'variable';
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-//@font-face {
-//	font-family: Itim;
-//	src: url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-//}
+
+@font-face {
+	font-family: Itim;
+	src: url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+}
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Itim', cursive;
+	font-family: Itim, cursive;
 	font-size: 20px;
 	line-height: 22px;
 }
