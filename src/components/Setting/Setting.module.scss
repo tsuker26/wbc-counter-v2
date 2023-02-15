@@ -11,13 +11,40 @@
 	background-color: var(--component-background);
 	max-width: 800px;
 	border-radius: 25px;
+	position: relative;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+
+	.close {
+		position: absolute;
+		right: 15px;
+		top: 7px;
+		font-size: 12px;
+		cursor: pointer;
+		transition: all 0.7s linear;
+	}
 
 	.item {
 		display: flex;
 		grid-gap: 15px;
+		transition: all 1s linear;
 
 		button {
 			align-self: end;
+		}
+	}
+
+	&.hidden {
+		height: 0;
+		background: transparent;
+		border: 0;
+		box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0);
+
+		.close {
+			transform: rotate(180deg);
+		}
+
+		.item {
+			display: none;
 		}
 	}
 }

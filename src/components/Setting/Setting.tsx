@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
 import styles from './Setting.module.scss'
 import MyInput from '../UI/MyInput/MyInput'
 import { useAppDispatch, useAppSelector } from '../../hook/useApp'
@@ -15,8 +15,13 @@ const Setting: FC = () => {
 	const { wbc, maxCount, mode } = useAppSelector(state => state.cells)
 	const dispatch = useAppDispatch()
 	const { language } = useAppSelector(state => state.lang)
+	const [hidden, setHidden] = useState(false)
+
 	return (
-		<div className={styles.setting_block}>
+		<div className={`${styles.setting_block} ${hidden ? styles.hidden : ''}`}>
+			<div className={styles.close} onClick={() => setHidden(!hidden)}>
+				↑
+			</div>
 			<div className={styles.item}>
 				<MyInput
 					type={'number'}
