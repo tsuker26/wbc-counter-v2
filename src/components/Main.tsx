@@ -1,24 +1,21 @@
 import { FC, useEffect } from 'react'
 import Table from './Table/Table'
-import { useAppDispatch } from '../hook/useApp'
+import { useAppDispatch, useAppSelector } from '../hook/useApp'
 import { setCells } from '../store/slice/cellsSlice'
 import { typesOfCells } from '../data/data'
 import Setting from './Setting/Setting'
 
 const Main: FC = () => {
 	const dispatch = useAppDispatch()
-
+	const { cellsMode } = useAppSelector(state => state.cells)
 	useEffect(() => {
 		if (localStorage.getItem('cells')) {
 			//@ts-ignore
 			dispatch(setCells(JSON.parse(localStorage.getItem('cells'))))
 		} else {
-			dispatch(setCells(typesOfCells.cellsBlood))
-			console.log(
-				typeof localStorage.getItem('cells'),
-				localStorage.getItem('cells')
-			)
-			localStorage.setItem('cells', JSON.stringify(typesOfCells.cellsBlood))
+			dispatch(setCells(typesOfCells[cellsMode]))
+
+			localStorage.setItem('cells', JSON.stringify(typesOfCells[cellsMode]))
 			console.log('dispatch cells')
 		}
 	}, [])

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ICell, typesOfCells } from '../../data/data'
+import { ICell, ITypesOfCells, typesOfCells } from '../../data/data'
 
 interface cellsState {
 	cells: ICell[]
@@ -7,6 +7,7 @@ interface cellsState {
 	maxCount: number
 	wbc: number
 	mode: string
+	cellsMode: keyof ITypesOfCells
 }
 
 type setCountPayloadType = { id: number; amount: number; count: number }
@@ -20,6 +21,9 @@ const initialState: cellsState = {
 		: 100,
 	wbc: localStorage.getItem('wbc') ? Number(localStorage.getItem('wbc')) : +'',
 	mode: '1',
+	cellsMode: localStorage.getItem('cellsMode')
+		? (localStorage.getItem('cellsMode') as keyof ITypesOfCells)
+		: 'cellsBlood',
 }
 
 const cellsSlice = createSlice({
@@ -54,7 +58,7 @@ const cellsSlice = createSlice({
 			}
 		},
 		setDefault(state) {
-			state.cells = typesOfCells.cellsBlood
+			state.cells = typesOfCells[state.cellsMode]
 			state.total = 0
 			state.wbc = 0
 			state.maxCount = 100
@@ -84,9 +88,25 @@ const cellsSlice = createSlice({
 		setMode(state, action: PayloadAction<string>) {
 			state.mode = action.payload
 		},
+		setCellsMode(state, action: PayloadAction<keyof ITypesOfCells>) {
+			state.cellsMode = action.payload
+			state.cells = typesOfCells[state.cellsMode]
+			localStorage.setItem(
+				'cells',
+				JSON.stringify(typesOfCells[state.cellsMode])
+			)
+			localStorage.setItem('cellsMode', String(state.cellsMode))
+		},
 	},
 })
 
-export const { setCells, setCount, setDefault, setWbc, setMaxCount, setMode } =
-	cellsSlice.actions
+export const {
+	setCells,
+	setCount,
+	setDefault,
+	setWbc,
+	setMaxCount,
+	setMode,
+	setCellsMode,
+} = cellsSlice.actions
 export default cellsSlice.reducer

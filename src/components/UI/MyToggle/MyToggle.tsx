@@ -1,33 +1,37 @@
 import { FC } from 'react'
 import styles from './MyToggle.module.scss'
+import { useAppSelector } from '../../../hook/useApp'
+import { ILanguage } from '../../../languages/lang'
 
 export type myToggle = {
 	id: string
-	name: string
+	name?: string
 }
 
-interface selectorProps {
+interface myToggleProps {
 	fn: (select: any) => void
-	selectActive: string
-	selectors: myToggle[]
+	toggleActive: string
+	toggles: myToggle[]
 }
 
-const Selector: FC<selectorProps> = ({ fn, selectActive, selectors }) => {
+const MyToggle: FC<myToggleProps> = ({ fn, toggleActive, toggles }) => {
+	const { language } = useAppSelector(state => state.lang)
+
 	return (
 		<div className={styles.myToggle}>
-			{selectors.map(select => (
+			{toggles.map(toggle => (
 				<div
-					key={select.id}
-					onClick={() => fn(select.id)}
+					key={toggle.id}
+					onClick={() => fn(toggle.id)}
 					className={`${styles.myToggleEl} ${
-						select.id === selectActive ? styles.active : ''
+						toggle.id === toggleActive ? styles.active : ''
 					}`}
 				>
-					{select.name}
+					{toggle.name ? toggle.name : language[toggle.id as keyof ILanguage]}
 				</div>
 			))}
 		</div>
 	)
 }
 
-export default Selector
+export default MyToggle
