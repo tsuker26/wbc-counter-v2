@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ILanguages, lang } from '../languages/lang'
-import { setLanguage } from '../store/slice/languageSlice'
 import { useAppDispatch } from './useApp'
+import { setLanguage } from '../store/slice/languageSlice'
 
 export const useLanguage = () => {
 	const dispatch = useAppDispatch()
@@ -13,6 +13,7 @@ export const useLanguage = () => {
 	useEffect(() => {
 		dispatch(setLanguage(lang[select]))
 		localStorage.setItem('lang', select)
+		document.documentElement.setAttribute('lang', select.toLowerCase())
 	}, [select])
 	return { select, setSelect }
 }
