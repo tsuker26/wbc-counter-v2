@@ -31,7 +31,6 @@ export const typesOfCells: ITypesOfCells = {
 		{ id: 5, name: 'monocyte', count: 0, relative: 0, absolute: 0 },
 		{ id: 6, name: 'lymphocyte', count: 0, relative: 0, absolute: 0 },
 		{ id: 7, name: 'eosinophil', count: 0, relative: 0, absolute: 0 },
-		{ id: 8, name: 'basophil', count: 0, relative: 0, absolute: 0 },
 	],
 	['cellsDogs']: [
 		{ id: 0, name: 'netrophil', count: 0, relative: 0, absolute: 0 },
