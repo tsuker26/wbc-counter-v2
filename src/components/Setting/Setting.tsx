@@ -31,11 +31,11 @@ const Setting: FC = () => {
 					value={wbc}
 					label={'WBC 10⁹/L'}
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
-						dispatch(setWbc(e.target.value))
+						!isNaN(+e.target.value) && dispatch(setWbc(e.target.value))
 					}
 				/>
 				<MyInput
-					type={'number'}
+					type={'tel'}
 					value={maxCount}
 					label={language.maxCount}
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
