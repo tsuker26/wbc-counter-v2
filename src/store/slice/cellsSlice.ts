@@ -5,7 +5,7 @@ interface cellsState {
 	cells: ICell[]
 	total: number
 	maxCount: number
-	wbc: number
+	wbc: string
 	mode: string
 	cellsMode: keyof ITypesOfCells
 }
@@ -19,7 +19,7 @@ const initialState: cellsState = {
 	maxCount: localStorage.getItem('maxCount')
 		? Number(localStorage.getItem('maxCount'))
 		: 100,
-	wbc: localStorage.getItem('wbc') ? Number(localStorage.getItem('wbc')) : +'',
+	wbc: localStorage.getItem('wbc') ? String(localStorage.getItem('wbc')) : '',
 	mode: '1',
 	cellsMode: localStorage.getItem('cellsMode')
 		? (localStorage.getItem('cellsMode') as keyof ITypesOfCells)
@@ -48,7 +48,7 @@ const cellsSlice = createSlice({
 						cell.absolute = 0
 					} else {
 						cell.relative = (cell.count * 100) / state.total
-						cell.absolute = (cell.relative * state.wbc) / 100
+						cell.absolute = (cell.relative * +state.wbc) / 100
 					}
 				})
 				localStorage.setItem('cells', JSON.stringify(state.cells))
@@ -60,14 +60,14 @@ const cellsSlice = createSlice({
 		setDefault(state) {
 			state.cells = typesOfCells[state.cellsMode]
 			state.total = 0
-			state.wbc = 0
+			state.wbc = '0'
 			state.maxCount = 100
 			state.mode = '1'
 			localStorage.setItem('cells', JSON.stringify(state.cells))
 			localStorage.setItem('total', String(state.total))
 			localStorage.setItem('wbc', String(state.wbc))
 		},
-		setWbc(state, action: PayloadAction<number>) {
+		setWbc(state, action: PayloadAction<string>) {
 			state.wbc = action.payload
 			state.cells.forEach(cell => {
 				if (state.total === 0) {
@@ -75,7 +75,7 @@ const cellsSlice = createSlice({
 					cell.absolute = 0
 				} else {
 					cell.relative = (cell.count * 100) / state.total
-					cell.absolute = (cell.relative * state.wbc) / 100
+					cell.absolute = (cell.relative * +state.wbc) / 100
 				}
 			})
 			localStorage.setItem('cells', JSON.stringify(state.cells))
