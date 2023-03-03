@@ -27,11 +27,11 @@ const Setting: FC = () => {
 			</div>
 			<div className={styles.item}>
 				<MyInput
-					type={'number'}
+					type={'text'}
 					value={wbc}
 					label={'WBC 10⁹/L'}
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
-						dispatch(setWbc(+e.target.value))
+						dispatch(setWbc(e.target.value))
 					}
 				/>
 				<MyInput
