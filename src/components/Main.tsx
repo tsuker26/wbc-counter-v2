@@ -10,8 +10,7 @@ const Main: FC = () => {
 	const { cellsMode } = useAppSelector(state => state.cells)
 	useEffect(() => {
 		if (localStorage.getItem('cells')) {
-			//@ts-ignore
-			dispatch(setCells(JSON.parse(localStorage.getItem('cells'))))
+			dispatch(setCells(JSON.parse(localStorage.getItem('cells') as string)))
 		} else {
 			dispatch(setCells(typesOfCells[cellsMode]))
 

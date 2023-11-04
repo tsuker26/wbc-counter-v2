@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=localhost --port=3000",
+    "deploy": "vk-miniapps-deploy"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@types/react-redux": "^7.1.25",
+    "@vkontakte/vk-bridge": "^2.11.2",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.6",
+    "@vkontakte/vk-tunnel": "^0.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -22,6 +27,7 @@
     "@vitejs/plugin-react": "^3.1.0",
     "prettier": "^2.8.4",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vite-plugin-mkcert": "^1.16.0"
   }
 }
